@@ -1,0 +1,159 @@
+```html
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Happy Birthday Naila 💗</title>
+
+<style>
+* { box-sizing: border-box; }
+
+body {
+    margin: 0;
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+    font-family: Arial, sans-serif;
+    text-align: center;
+    color: #9b3766;
+    background: linear-gradient(135deg, #ffe0ec, #f4caff, #fff2f7);
+}
+
+.card {
+    max-width: 430px;
+    width: 100%;
+    padding: 30px 24px;
+    border: 3px solid white;
+    border-radius: 28px;
+    background: #ffffffcc;
+    box-shadow: 0 12px 40px #d77ca655;
+}
+
+.heart {
+    font-size: 70px;
+    animation: beat 1s infinite alternate;
+}
+
+h1 { font-size: 32px; }
+
+button {
+    border: 0;
+    border-radius: 25px;
+    padding: 13px 22px;
+    margin-top: 12px;
+    background: #ed76a8;
+    color: white;
+    font-size: 16px;
+    cursor: pointer;
+}
+
+#letter, #final {
+    display: none;
+    line-height: 1.8;
+    animation: appear .8s ease;
+}
+
+@keyframes beat {
+    to { transform: scale(1.15); }
+}
+
+@keyframes appear {
+    from { opacity: 0; transform: translateY(15px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+.floating {
+    position: fixed;
+    bottom: -40px;
+    pointer-events: none;
+    animation: float 5s linear forwards;
+}
+
+@keyframes float {
+    to {
+        transform: translateY(-110vh) rotate(360deg);
+        opacity: 0;
+    }
+}
+</style>
+
+</head>
+
+<body>
+<main class="card">
+    <p>🎀 A LITTLE SURPRISE FOR YOU 🎀</p>
+
+    <div class="heart">💗</div>
+
+    <h1>Happy Birthday!</h1>
+    <h2>Naila Lop Minji 🌷</h2>
+
+    <p>Hari ini hari spesial buat kamu!</p>
+
+    <button id="open" onclick="openLetter()">
+        Buka Surat 💌
+    </button>
+
+    <section id="letter">
+        <h2>Happy Birthday, Naila! 🎂</h2>
+
+        <p>
+            Selamat ulang tahun yaaa! 💗
+            <br><br>
+            Semoga kamu selalu sehat, panjang umur,
+            makin bahagia, dan semua hal baik datang
+            ke kehidupan lu.
+            <br><br>
+            Semoga apa yang kamu impikan bisa tercapai.
+            Jangan lupa tetap jadi diri lu sendiri
+            dan terus senyum! 🌷
+            <br><br>
+            <b>Have a wonderful birthday! 🎀</b>
+        </p>
+
+        <button onclick="finalSurprise()">
+            Klik Terakhir ✨
+        </button>
+    </section>
+
+    <section id="final">
+        <h2>YOU DESERVE ALL THE HAPPINESS 💖</h2>
+        <p>🎂🌷🎀✨💕</p>
+        <p>Once again, happy birthday! 🫶</p>
+    </section>
+</main>
+
+<script>
+function openLetter() {
+    document.getElementById("letter").style.display = "block";
+    document.getElementById("open").style.display = "none";
+    celebrate(30);
+}
+
+function finalSurprise() {
+    document.getElementById("final").style.display = "block";
+    celebrate(50);
+}
+
+function celebrate(amount) {
+    for (let i = 0; i < amount; i++) {
+        setTimeout(() => {
+            const item = document.createElement("div");
+            item.className = "floating";
+            item.textContent = ["💗", "💕", "🌸", "🎀", "✨"][
+                Math.floor(Math.random() * 5)
+            ];
+            item.style.left = Math.random() * 100 + "vw";
+            item.style.fontSize = (18 + Math.random() * 20) + "px";
+            document.body.appendChild(item);
+            setTimeout(() => item.remove(), 5000);
+        }, i * 60);
+    }
+}
+</script>
+</body>
+</html>
+```
